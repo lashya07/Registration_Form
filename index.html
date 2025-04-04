@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>School Kid Registration</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+        }
+        input, button {
+            width: 100%;
+            padding: 8px;
+            margin-top: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        button {
+            background: blue;
+            color: white;
+            cursor: pointer;
+        }
+        .receipt {
+            margin-top: 20px;
+            padding: 10px;
+            background: #f9f9f9;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>School Kid Registration</h2>
+        <form id="registrationForm">
+            <input type="text" id="name" placeholder="Child's Name" required>
+            <input type="number" id="age" placeholder="Age" required>
+            <input type="text" id="grade" placeholder="Grade" required>
+            <input type="text" id="parentName" placeholder="Parent's Name" required>
+            <input type="tel" id="contact" placeholder="Contact Number" required>
+            <button type="submit">Register</button>
+        </form>
+        <div id="receipt" class="receipt" style="display: none;"></div>
+    </div>
+    <script>
+        document.getElementById("registrationForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+            let name = document.getElementById("name").value;
+            let age = document.getElementById("age").value;
+            let grade = document.getElementById("grade").value;
+            let parentName = document.getElementById("parentName").value;
+            let contact = document.getElementById("contact").value;
+            
+            let receipt = `
+                <h3>Registration Receipt</h3>
+                <p><strong>Child's Name:</strong> ${name}</p>
+                <p><strong>Age:</strong> ${age}</p>
+                <p><strong>Grade:</strong> ${grade}</p>
+                <p><strong>Parent's Name:</strong> ${parentName}</p>
+                <p><strong>Contact:</strong> ${contact}</p>
+            `;
+            
+            document.getElementById("receipt").innerHTML = receipt;
+            document.getElementById("receipt").style.display = "block";
+        });
+    </script>
+</body>
+</html>
